@@ -14,7 +14,10 @@ export default {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-  babel: {
+  env: {
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL || 'http://localhost:3001'
+  },
+  compiler: {
     styledComponents: true,
   },
 };

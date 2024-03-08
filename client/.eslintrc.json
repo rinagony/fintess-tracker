@@ -5,7 +5,18 @@
     "prettier"
   ],
   "rules": {
-    "indent": ["error", 2], // Enforce 2 spaces for indentation
-    "quotes": ["error", "single"] // Enforce single quotes for strings
+    "indent": ["error", 2], 
+    "quotes": ["error", "single"], 
+    "max-len": [
+      "error",
+      {
+        "code": 80, 
+        "tabWidth": 2, 
+        "ignoreUrls": true, 
+        "ignoreStrings": true, 
+        "ignoreTemplateLiterals": true, 
+        "ignoreRegExpLiterals": true 
+      }
+    ]
   }
 }
