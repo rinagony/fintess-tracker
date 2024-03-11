@@ -15,7 +15,7 @@ export default {
     includePaths: [path.join(__dirname, 'styles')],
   },
   env: {
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL || 'http://localhost:3001'
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL || 'http://localhost:3000'
   },
   compiler: {
     styledComponents: true,

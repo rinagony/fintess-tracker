@@ -9,6 +9,13 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import StyledComponentsRegistry from "./registry";
 import Provider from "./_components/SessionProvider";
 import ProtectedRoute from "./protected";
+import Drawer from "./_components/Drawer";
+import styled from "styled-components";
+
+const WrapperContent = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -43,6 +50,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+      </head>
       <body className={inter.className}>
         <AppRouterCacheProvider>
           <ApolloProvider client={client}>
@@ -50,8 +64,11 @@ export default function RootLayout({
               <StyledComponentsRegistry>
                 <ThemeProvider theme={theme}>
                   <ProtectedRoute>
-                  <Header />
-                  {children}
+                    <Header />
+                    <WrapperContent>
+                      <Drawer />
+                      {children}
+                    </WrapperContent>
                   </ProtectedRoute>
                 </ThemeProvider>
               </StyledComponentsRegistry>

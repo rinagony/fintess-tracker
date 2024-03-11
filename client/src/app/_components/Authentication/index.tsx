@@ -1,17 +1,25 @@
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
+import styled from "styled-components";
+import Button from '@mui/material/Button';
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`
 
 export default function Authentication() {
   const { data: session, status } = useSession();
 
   if(status === "loading") return null
   return (
-    <div>
+    <Container>
       {session ? (
-        <button onClick={() => signOut()}>Sign Out</button>
+        <Button color="secondary" variant="contained" onClick={() => signOut()}>Sign Out</Button>
       ) : (
-        <button onClick={() => signIn("google")}>Sign in with google</button>
+        <Button color="secondary" variant="contained" onClick={() => signIn("google")}>Sign in with google</Button>
       )}
-    </div>
+    </Container>
   );
 }
