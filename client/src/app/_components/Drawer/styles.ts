@@ -5,7 +5,7 @@ interface DrawerProps {
 }
 
 const DrawerContainer = styled.div<DrawerProps>`
-  width: ${(props) => (props.isOpen ? "250px" : "80px")};
+  width: ${(props) => (props.isOpen ? "200px" : "80px")};
   height: 100vh;
   position: relative;
   padding: 0 10px;

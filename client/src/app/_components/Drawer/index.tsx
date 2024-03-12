@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { PageProps } from "@/interfaces/menu";
 import MenuItemContent from "./MenuItem";
 import {DrawerContainer, MenuItems, MenuItem, CollapseButton} from './styles'
+import { useSession } from "next-auth/react";
 
 
 const pages: PageProps[] = [
@@ -17,7 +18,7 @@ const pages: PageProps[] = [
   },
   {
     title: "Clients",
-    link: "/",
+    link: "/clients",
     icon: <HomeOutlinedIcon />,
     authRequired: true,
   },
@@ -30,11 +31,13 @@ const pages: PageProps[] = [
 ];
 
 const DrawerComponent: React.FC = () => {
+  const { data: session }: any = useSession();
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
+  if(!session) return null
 
   return (
     <DrawerContainer isOpen={isOpen}>
