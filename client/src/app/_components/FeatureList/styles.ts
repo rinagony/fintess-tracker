@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 const StyledList = styled.ul`
   list-style-type: none;
-  padding: 0;
+  padding: 1rem;
   margin: 0 0 1.5rem 0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 const StyledListItem = styled.li`

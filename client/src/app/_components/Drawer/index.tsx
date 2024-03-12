@@ -5,28 +5,33 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { usePathname } from "next/navigation";
 import { PageProps } from "@/interfaces/menu";
 import MenuItemContent from "./MenuItem";
+import FlagCircleOutlinedIcon from '@mui/icons-material/FlagCircleOutlined';
+import EggAltOutlinedIcon from '@mui/icons-material/EggAltOutlined';
+import SportsKabaddiIcon from '@mui/icons-material/SportsKabaddi';
 import {DrawerContainer, MenuItems, MenuItem, CollapseButton} from './styles'
 import { useSession } from "next-auth/react";
 
 
 const pages: PageProps[] = [
   {
-    title: "Projects",
-    link: "/projects",
+    title: "Home",
+    link: "/",
     icon: <HomeOutlinedIcon />,
-    authRequired: true,
   },
   {
-    title: "Clients",
+    title: "Training plans",
+    link: "/training-plans",
+    icon: <SportsKabaddiIcon />,
+  },
+  {
+    title: "Nutrition plans",
     link: "/clients",
-    icon: <HomeOutlinedIcon />,
-    authRequired: true,
+    icon: <EggAltOutlinedIcon />,
   },
   {
-    title: "My account",
-    link: "/my-account",
-    icon: <HomeOutlinedIcon />,
-    authRequired: true,
+    title: "My goals",
+    link: "/my-goals",
+    icon: <FlagCircleOutlinedIcon />,
   },
 ];
 
@@ -40,15 +45,15 @@ const DrawerComponent: React.FC = () => {
   if(!session) return null
 
   return (
-    <DrawerContainer isOpen={isOpen}>
-      <CollapseButton isOpen={isOpen} onClick={toggleDrawer}>
+    <DrawerContainer isopen={isOpen}>
+      <CollapseButton isopen={isOpen} onClick={toggleDrawer}>
         {isOpen ? (
           <ArrowForwardIosIcon color="primary" />
         ) : (
           <ArrowBackIosNewIcon color="primary" />
         )}
       </CollapseButton>
-      <MenuItems isOpen={isOpen}>
+      <MenuItems isopen={isOpen}>
         {pages.map((page, index) => (
           <MenuItem key={index} isActive={usePathname() === page.link}>
             <MenuItemContent page={page} isOpen={isOpen} />

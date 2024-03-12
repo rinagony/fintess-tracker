@@ -22,7 +22,7 @@ const FeatureList = ({ isLoggedIn }: FeatureListProps) => {
     <Wrapper>
       <h2>
         {isLoggedIn
-          ? "You already logged in and you have access to:"
+          ? "You have access to:"
           : "Sign in to get full access to:"}
       </h2>
       <StyledList>
@@ -35,7 +35,7 @@ const FeatureList = ({ isLoggedIn }: FeatureListProps) => {
         variant="contained"
         onClick={() => (isLoggedIn ? null : signIn("google"))}
       >
-        {isLoggedIn ? <Link href="/my-account">My profile</Link> : "Sign in"}
+        {isLoggedIn ? <Link href="/my-goals">My GOALS</Link> : "Sign in"}
       </Button>
     </Wrapper>
   );

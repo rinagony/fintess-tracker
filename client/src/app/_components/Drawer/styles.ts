@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
 
 interface DrawerProps {
-  isOpen: boolean;
+  isopen: boolean;
 }
 
 const DrawerContainer = styled.div<DrawerProps>`
-  width: ${(props) => (props.isOpen ? "200px" : "80px")};
+  width: ${(props) => (props.isopen ? "220px" : "80px")};
   height: 100vh;
   position: relative;
   padding: 0 10px;
@@ -21,7 +21,7 @@ const DrawerContainer = styled.div<DrawerProps>`
 const MenuItems = styled.ul<DrawerProps>`
   list-style: none;
   padding: 30px 0;
-  margin: ${(props) => (props.isOpen ? "35px 0" : "0")};
+  margin: ${(props) => (props.isopen ? "35px 0" : "0")};
 `;
 
 const MenuItem = styled.li<{ isActive: boolean }>`
@@ -45,8 +45,8 @@ const CollapseButton = styled.button<DrawerProps>`
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   top: 10px;
   cursor: pointer;
-  position: ${(props) => (props.isOpen ? "absolute" : "relative")};
-  right: ${(props) => (props.isOpen ? "5px" : "auto")};
+  position: ${(props) => (props.isopen ? "absolute" : "relative")};
+  right: ${(props) => (props.isopen ? "5px" : "auto")};
   padding: 4px 5px;
   border: none;
   border-radius: 50%;

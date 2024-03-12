@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import Carousel from "./_components/Carousel";
-import { PageWrapper } from "./shared/styles";
+import { PageWrapper, Title } from "./shared/styles";
 import Grid from "@mui/material/Grid";
 import FeatureList from "./_components/FeatureList";
 import { useSession } from "next-auth/react";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const slides = [
   {
@@ -32,6 +33,7 @@ const Home = () => {
   const { data: session } = useSession();
   return (
     <PageWrapper>
+      <Title>Welcome! I am your fitness friend <FavoriteBorderIcon/></Title>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <Carousel slides={slides} />

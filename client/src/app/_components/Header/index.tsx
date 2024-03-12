@@ -7,13 +7,16 @@ import Authentication from "../Authentication";
 import { appBarStyled, LogoWrapper, Title } from "./styles";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import Phrases from "../Phrases";
+import SummaryProfile from "../SummaryProfile";
+import { useSession } from "next-auth/react";
 
 function Header() {
+  const { data: session, status } = useSession();
   return (
     <AppBar position="static" sx={appBarStyled}>
       <Container maxWidth="xl">
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={3}>
+          <Grid container alignItems="center" spacing={2}>
+            <Grid item xs={12} md={2}>
               <Link href="/">
                 <LogoWrapper>
                   <FitnessCenterIcon style={{ transform: "scale(1.8)" }} />
@@ -21,10 +24,13 @@ function Header() {
                 </LogoWrapper>
               </Link>
             </Grid>
-            <Grid item xs={12} md={7}>
+            <Grid item xs={12} md={8}>
               <Phrases />
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid item xs={12} md={1}>
+              <SummaryProfile user={session!.user}/>
+            </Grid>
+            <Grid item xs={12} md={1}>
               <Authentication />
             </Grid>
           </Grid>

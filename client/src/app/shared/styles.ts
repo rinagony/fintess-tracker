@@ -5,4 +5,9 @@ const PageWrapper = styled(Container)`
   padding: 2rem 0;
 `
 
-export { PageWrapper}
+const Title = styled.h2`
+  font-size: 2rem;
+  margin: 2rem 0;
+`
+
+export { PageWrapper, Title}
