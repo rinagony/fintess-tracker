@@ -12,7 +12,15 @@ const TrainingSchema = new mongoose.Schema({
   exercises: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Exercise'
-  }]
+  }],
+  duration: {
+    type: String,
+    required: true
+  },
+  level: {
+    type: String,
+    required: true
+  },
 });
 
 module.exports = mongoose.model('Training', TrainingSchema);

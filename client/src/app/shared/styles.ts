@@ -2,7 +2,10 @@ import styled from "styled-components";
 import Container from "@mui/material/Container";
 
 const PageWrapper = styled(Container)`
-  padding: 2rem 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 3rem;
+  padding-right: 2rem;
 `
 
 const Title = styled.h2`

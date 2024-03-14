@@ -14,4 +14,18 @@ const GET_EXERCISES = gql`
   }
 `;
 
-export { GET_EXERCISES };
+const GET_EXERCISE = gql`
+  query getExercise($id: ID!) {
+    exercise(id: $id) {
+      id
+      exercise_name
+      muscle_group
+      type
+      description
+      equipment
+      difficulty_level
+    }
+  }
+`;
+
+export { GET_EXERCISES, GET_EXERCISE };

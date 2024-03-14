@@ -1,7 +1,7 @@
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import styled from "styled-components";
-import Button from "@mui/material/Button";
+import ButtonPrimary from "../ButtonPrimary";
 
 const Container = styled.div`
   width: 100%;
@@ -16,17 +16,9 @@ export default function Authentication() {
   return (
     <Container>
       {session ? (
-        <Button color="secondary" variant="contained" onClick={() => signOut()}>
-          Sign Out
-        </Button>
+        <ButtonPrimary onClick={() => signOut()} text="Sign Out" />
       ) : (
-        <Button
-          color="secondary"
-          variant="contained"
-          onClick={() => signIn("google")}
-        >
-          Sign in
-        </Button>
+        <ButtonPrimary onClick={() => signIn("google")} text="Sign in" />
       )}
     </Container>
   );

@@ -1,16 +1,30 @@
  [
    {
-      "id": "1",
-      "name": "Beginner Full Body Workout",
+      "name": "Full Body Workout",
       "description": "This training plan is suitable for beginners and targets all major muscle groups.",
+      "duration": "30",
+      "level": "beginner",
       "exercises": ["65f06355486a6bf005e535a6"]
    },
    {
-    "id": "2",
-    "name": "Intermediate Upper Body Workout",
+    "name": "Upper Body Workout",
     "description": "This training plan is suitable for intermediate-level individuals and focuses on the upper body.",
+    "duration": "45",
+      "level": "intermediate",
     "exercises": [
       "65f06355486a6bf005e535a2",
       "65f06355486a6bf005e535a4"
     ]
- }]
+ },
+ {
+  "name": "Lower Body Workout",
+  "description": "This training plan is suitable for advanced-level individuals and focuses on the lower body.",
+  "duration": "90",
+    "level": "intermediate",
+  "exercises": [
+    "65f06355486a6bf005e535a6",
+    "65f06355486a6bf005e535a5",
+    "65f06355486a6bf005e535a4"
+  ]
+}
+]

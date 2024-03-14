@@ -6,8 +6,24 @@ const GET_TRAINING_PLANS = gql`
       id
       name
       description
+      exercises
+      duration
+      level
     }
   }
 `;
 
-export { GET_TRAINING_PLANS };
+
+const GET_TRAINING = gql`
+  query getTraining($id: ID!) {
+    training(id: $id) {
+      id
+      name
+      description
+      exercises
+      duration
+      level
+    }
+  }
+`
+export { GET_TRAINING_PLANS, GET_TRAINING };

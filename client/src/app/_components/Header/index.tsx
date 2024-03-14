@@ -11,29 +11,31 @@ import SummaryProfile from "../SummaryProfile";
 import { useSession } from "next-auth/react";
 
 function Header() {
-  const { data: session, status } = useSession();
+  const { data: session, status }: any = useSession();
+
+  if (status === "loading") return null;
   return (
     <AppBar position="static" sx={appBarStyled}>
       <Container maxWidth="xl">
-          <Grid container alignItems="center" spacing={2}>
-            <Grid item xs={12} md={2}>
-              <Link href="/">
-                <LogoWrapper>
-                  <FitnessCenterIcon style={{ transform: "scale(1.8)" }} />
-                  <Title>Fitness Tracker</Title>
-                </LogoWrapper>
-              </Link>
-            </Grid>
-            <Grid item xs={12} md={8}>
-              <Phrases />
-            </Grid>
-            <Grid item xs={12} md={1}>
-              <SummaryProfile user={session!.user}/>
-            </Grid>
-            <Grid item xs={12} md={1}>
-              <Authentication />
-            </Grid>
+        <Grid container alignItems="center" spacing={2}>
+          <Grid item xs={12} md={2}>
+            <Link href="/">
+              <LogoWrapper>
+                <FitnessCenterIcon style={{ transform: "scale(1.8)" }} />
+                <Title>Fitness Tracker</Title>
+              </LogoWrapper>
+            </Link>
           </Grid>
+          <Grid item xs={12} md={7}>
+            <Phrases />
+          </Grid>
+          <Grid item xs={12} md={2}>
+          {session?.user ? <SummaryProfile user={session.user} /> : null}
+          </Grid>
+          <Grid item xs={12} md={1}>
+            <Authentication />
+          </Grid>
+        </Grid>
       </Container>
     </AppBar>
   );

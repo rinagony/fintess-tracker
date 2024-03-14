@@ -58,7 +58,9 @@ const TrainingType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     description: { type: GraphQLString },
-    exercises: { type: GraphQLList(GraphQLID) } // List of exercise IDs
+    exercises: { type: GraphQLList(GraphQLID) },
+    duration: { type: GraphQLString },
+    level: { type: GraphQLString },
   }),
 });
 

@@ -9,6 +9,7 @@ interface ProtectedRouteProps {
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const { data: session, status }: any = useSession();
+  
 
   useEffect(() => {
     if (status === "authenticated" && !session?.user) {
