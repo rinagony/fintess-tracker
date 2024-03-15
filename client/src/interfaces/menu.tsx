@@ -1,7 +1,13 @@
-interface PageProps {
+interface SubpageProps {
   title: string;
   link: string;
-  icon: React.ReactNode;
 }
 
-export type { PageProps }
+interface PageProps {
+  title: string;
+  link?: string;
+  icon: React.ReactNode;
+  subpages?: SubpageProps[];
+}
+
+export type { PageProps, SubpageProps }

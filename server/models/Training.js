@@ -1,5 +1,20 @@
 const mongoose = require('mongoose');
 
+const ExerciseTrainingSchema = new mongoose.Schema({
+  sets: {
+    type: Number,
+    required: true
+  },
+  repetitions: {
+    type: Number,
+    required: true
+  },
+  exerciseUuid: {
+    type: String,
+    required: true
+  }
+});
+
 const TrainingSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -9,10 +24,7 @@ const TrainingSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  exercises: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Exercise'
-  }],
+  exercises: [ExerciseTrainingSchema],
   duration: {
     type: String,
     required: true

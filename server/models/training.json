@@ -1,30 +1,56 @@
- [
-   {
-      "name": "Full Body Workout",
-      "description": "This training plan is suitable for beginners and targets all major muscle groups.",
-      "duration": "30",
-      "level": "beginner",
-      "exercises": ["65f06355486a6bf005e535a6"]
-   },
-   {
+[
+  {
+    "name": "Full Body Workout",
+    "description": "This training plan is suitable for beginners and targets all major muscle groups.",
+    "duration": "30",
+    "level": "beginner",
+    "exercises": [
+      {
+        "sets": 3,
+        "repetitions": 12,
+        "exerciseUuid": "65f46398486a6bf005e535cd"
+      }
+    ]
+  },
+  {
     "name": "Upper Body Workout",
     "description": "This training plan is suitable for intermediate-level individuals and focuses on the upper body.",
     "duration": "45",
-      "level": "intermediate",
-    "exercises": [
-      "65f06355486a6bf005e535a2",
-      "65f06355486a6bf005e535a4"
-    ]
- },
- {
-  "name": "Lower Body Workout",
-  "description": "This training plan is suitable for advanced-level individuals and focuses on the lower body.",
-  "duration": "90",
     "level": "intermediate",
-  "exercises": [
-    "65f06355486a6bf005e535a6",
-    "65f06355486a6bf005e535a5",
-    "65f06355486a6bf005e535a4"
-  ]
-}
+    "exercises": [
+      {
+        "sets": 4,
+        "repetitions": 10,
+        "exerciseUuid": "65f46398486a6bf005e535ce"
+      },
+      {
+        "sets": 3,
+        "repetitions": 12,
+        "exerciseUuid": "65f46398486a6bf005e535cf"
+      }
+    ]
+  },
+  {
+    "name": "Lower Body Workout",
+    "description": "This training plan is suitable for advanced-level individuals and focuses on the lower body.",
+    "duration": "90",
+    "level": "intermediate",
+    "exercises": [
+      {
+        "sets": 3,
+        "repetitions": 12,
+        "exerciseUuid": "65f06355486a6bf005e535a2"
+      },
+      {
+        "sets": 4,
+        "repetitions": 10,
+        "exerciseUuid": "65f46398486a6bf005e535d0"
+      },
+      {
+        "sets": 3,
+        "repetitions": 12,
+        "exerciseUuid": "65f46398486a6bf005e535d1"
+      }
+    ]
+  }
 ]

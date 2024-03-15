@@ -7,7 +7,7 @@ interface ButtonPrimraryProps {
 
 export default function ButtonPrimary({ onClick, text }: ButtonPrimraryProps) {
   return (
-    <Button sx={{textWrap: 'nowrap'}} color="secondary" variant="contained" onClick={onClick}>
+    <Button sx={{textWrap: 'nowrap', padding: '7px'}} color="secondary" variant="contained" onClick={onClick}>
       {text}
     </Button>
   );

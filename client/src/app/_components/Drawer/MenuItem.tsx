@@ -1,24 +1,26 @@
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { PageProps } from "@/interfaces/menu";
+import { PageProps, SubpageProps } from "@/interfaces/menu";
 import { MenuItemWrapper } from "./styles";
 
 interface MenuItemProps {
-  page: PageProps;
+  page?: PageProps;
   isOpen: boolean;
+  subpage?: SubpageProps;
 }
 
-const MenuItemContent = ({page, isOpen}: MenuItemProps) => {
+const MenuItemContent = ({ page, isOpen, subpage }: MenuItemProps) => {
+  const link = subpage ? subpage.link : (page && page.link) || '#';
+
   return (
-    <Link href={page.link}>
+    <Link href={link}>
       {isOpen ? (
         <MenuItemWrapper>
-          {page.icon}
-          <span>{page.title}</span>
+          {page && page.icon}
+          <span>{subpage ? subpage.title : (page && page.title)}</span>
         </MenuItemWrapper>
       ) : (
-        page.icon
+        page && page.icon
       )}
     </Link>
   );

@@ -1,0 +1,50 @@
+[
+  {
+    "exercise_name": "Squats",
+    "muscle_group": "Legs",
+    "type": "Strength",
+    "description": "Squats are a compound exercise that works the muscles in your legs, including your quadriceps, hamstrings, and glutes.",
+    "equipment": ["Barbell", "Dumbbells"],
+    "difficulty_level": "Intermediate"
+  },
+  {
+    "exercise_name": "Push-ups",
+    "muscle_group": "Chest, Shoulders, Triceps",
+    "type": "Bodyweight",
+    "description": "Push-ups are a bodyweight exercise that primarily targets the muscles in your chest, shoulders, and triceps.",
+    "equipment": ["None"],
+    "difficulty_level": "Beginner"
+  },
+  {
+    "exercise_name": "Deadlifts",
+    "muscle_group": "Back, Legs",
+    "type": "Strength",
+    "description": "Deadlifts are a compound exercise that targets the muscles in your back, legs, and core.",
+    "equipment": ["Barbell", "Dumbbells"],
+    "difficulty_level": "Advanced"
+  },
+  {
+    "exercise_name": "Bench Press",
+    "muscle_group": "Chest, Shoulders, Triceps",
+    "type": "Strength",
+    "description": "The bench press is a compound exercise that primarily targets the muscles in your chest, shoulders, and triceps.",
+    "equipment": ["Barbell", "Bench"],
+    "difficulty_level": "Intermediate"
+  },
+  {
+    "exercise_name": "Pull-ups",
+    "muscle_group": "Back, Biceps",
+    "type": "Bodyweight",
+    "description": "Pull-ups are a bodyweight exercise that targets the muscles in your back and biceps.",
+    "equipment": ["Pull-up bar"],
+    "difficulty_level": "Intermediate"
+  },
+  {
+    "exercise_name": "Plank",
+    "muscle_group": "Core",
+    "type": "Isometric",
+    "description": "The plank is an isometric exercise that strengthens the muscles in your core, including your abs, back, and hips.",
+    "equipment": ["None"],
+    "difficulty_level": "Beginner"
+  }
+]

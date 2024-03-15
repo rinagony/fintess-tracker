@@ -3,12 +3,28 @@ import { Card, CardContent, Typography } from "@mui/material";
 import { TrainingProps } from "@/interfaces/training";
 import Grid from "@mui/material/Grid";
 import SportsMartialArtsIcon from "@mui/icons-material/SportsMartialArts";
-import { TrainingInfoCard } from "../styles";
+import { TrainingInfoCard } from "../../../training-plans/styles";
 import TrainingLevel from "./TrainingLevel";
 import Link from "next/link";
+import styled from "styled-components";
+
+const ListContainer = styled.div`
+  a {
+    color: #ff4081;
+    text-align: center;
+    border: 1px solid #ff4081;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    &:hover {
+      border: 1px solid #2D9596;
+      color: #2D9596;
+    }
+  }
+`
 
 const TrainingList = ({ trainings }: { trainings: TrainingProps[] }) => {
   return (
+    <ListContainer>
     <Grid container spacing={2}>
       {trainings.map((training: TrainingProps) => (
         <Grid item xs={12} md={4}>
@@ -37,6 +53,7 @@ const TrainingList = ({ trainings }: { trainings: TrainingProps[] }) => {
         </Grid>
       ))}
     </Grid>
+    </ListContainer>
   );
 };
 

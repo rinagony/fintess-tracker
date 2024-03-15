@@ -11,6 +11,7 @@ const {
   GraphQLSchema,
   GraphQLList,
   GraphQLEnumType,
+  GraphQLInt,
 } = require("graphql");
 
 const ClientType = new GraphQLObjectType({
@@ -58,9 +59,19 @@ const TrainingType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     description: { type: GraphQLString },
-    exercises: { type: GraphQLList(GraphQLID) },
+    exercises: { type: GraphQLList(ExerciseTrainingType) },
     duration: { type: GraphQLString },
     level: { type: GraphQLString },
+  }),
+});
+
+const ExerciseTrainingType = new GraphQLObjectType({
+  name: "ExerciseTraining",
+  fields: () => ({
+    id: { type: GraphQLID },
+    sets: { type: GraphQLInt }, 
+    repetitions: { type: GraphQLInt },
+    exerciseUuid: { type: GraphQLID}
   }),
 });
 

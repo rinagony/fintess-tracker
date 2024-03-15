@@ -24,7 +24,7 @@ const MenuItems = styled.ul<DrawerProps>`
   margin: ${(props) => (props.isopen ? "35px 0" : "0")};
 `;
 
-const MenuItem = styled.li<{ isActive: boolean }>`
+const MenuItem = styled.li<{ isActive: boolean, issubpage?: boolean }>`
   padding: 10px;
   margin-top: 10px;
   text-wrap: nowrap;
@@ -61,4 +61,9 @@ const MenuItemWrapper = styled.span`
   }
 `;
 
-export { DrawerContainer, MenuItems, MenuItem, CollapseButton, MenuItemWrapper}
+const SubpageWrapper = styled.div`
+  padding-left: 2rem;
+
+`
+
+export { DrawerContainer, MenuItems, MenuItem, CollapseButton, MenuItemWrapper, SubpageWrapper}

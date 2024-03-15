@@ -10,11 +10,21 @@ import { PageHeaderWrapper, Title } from "@/shared";
 import ButtonPrimary from "@/app/_components/ButtonPrimary";
 import { GET_EXERCISES } from "@/queries/exerciseQueries";
 import { useEffect, useState } from "react";
+import ExercisesList from "@/app/_components/ExercisesList";
+import TrainingLevel from "../../../_components/Alert/TrainingList/TrainingLevel";
+import { TrainingInfoCard } from "../../styles";
 
 const TrainingItemWrapper = styled.div`
   p {
     color: #000;
   }
+  margin-bottom: 2rem;
+`;
+const Description = styled.p`
+  color: #000;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 `;
 
 const TrainingItem = ({ params }: { params: { trainingId: string } }) => {
@@ -23,7 +33,7 @@ const TrainingItem = ({ params }: { params: { trainingId: string } }) => {
     variables: { id: trainingId },
   });
 
-  const {data: exercisesData } = useQuery(GET_EXERCISES);
+  const { data: exercisesData } = useQuery(GET_EXERCISES);
 
   const [exercises, setExercises] = useState([]);
 
@@ -31,20 +41,29 @@ const TrainingItem = ({ params }: { params: { trainingId: string } }) => {
     if (exercisesData) {
       setExercises(exercisesData.exercises);
     }
+  }, [exercisesData]);
 
-  }, [exercisesData])
-
-  if (loading) return <Spinner />;
+  if (loading && !data) return <Spinner />;
   if (error) return <Alert message={error.message} />;
   return (
     <Container maxWidth="lg" sx={{ mt: 4 }}>
       <PageHeaderWrapper>
-      <Title>{data.training.name}</Title>
-      <ButtonPrimary text="Edit workout" onClick={() => {}} />
+        <Title>{data.training.name}</Title>
+        <ButtonPrimary text="Add workout" onClick={() => {}} />
       </PageHeaderWrapper>
       <TrainingItemWrapper>
-        <p>{data.training.description}</p>
+        <Description>{data.training.description}</Description>
+        <TrainingLevel level={data.training.level} />
+        <TrainingInfoCard>
+          <p>
+            Duration: <span>{data.training.duration} miniutes</span>
+          </p>
+        </TrainingInfoCard>
       </TrainingItemWrapper>
+      <ExercisesList
+        exercises={exercises}
+        trainingExercises={data.training.exercises}
+      />
     </Container>
   );
 };

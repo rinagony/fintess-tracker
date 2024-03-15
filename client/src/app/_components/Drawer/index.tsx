@@ -8,7 +8,7 @@ import MenuItemContent from "./MenuItem";
 import FlagCircleOutlinedIcon from '@mui/icons-material/FlagCircleOutlined';
 import EggAltOutlinedIcon from '@mui/icons-material/EggAltOutlined';
 import SportsKabaddiIcon from '@mui/icons-material/SportsKabaddi';
-import {DrawerContainer, MenuItems, MenuItem, CollapseButton} from './styles'
+import {DrawerContainer, MenuItems, MenuItem, CollapseButton, SubpageWrapper} from './styles'
 import { useSession } from "next-auth/react";
 
 
@@ -20,8 +20,17 @@ const pages: PageProps[] = [
   },
   {
     title: "Training plans",
-    link: "/training-plans",
     icon: <SportsKabaddiIcon />,
+    subpages: [
+      {
+        title: "Available",
+        link: "/training-plans/available",
+      },
+      {
+        title: "My Workouts",
+        link: "/training-plans/my-workouts",
+      },
+    ],
   },
   {
     title: "Nutrition plans",
@@ -42,7 +51,8 @@ const DrawerComponent: React.FC = () => {
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
-  if(!session) return null
+
+  if (!session) return null;
 
   return (
     <DrawerContainer isopen={isOpen}>
@@ -57,6 +67,15 @@ const DrawerComponent: React.FC = () => {
         {pages.map((page, index) => (
           <MenuItem key={index} isActive={usePathname() === page.link}>
             <MenuItemContent page={page} isOpen={isOpen} />
+            {page.subpages && isOpen && (
+              <SubpageWrapper>
+                {page.subpages.map((subpage, subindex) => (
+                  <MenuItem issubpage key={subindex} isActive={usePathname() === subpage.link}>
+                    <MenuItemContent subpage={subpage} isOpen={isOpen} />
+                  </MenuItem>
+                ))}
+              </SubpageWrapper>
+            )}
           </MenuItem>
         ))}
       </MenuItems>
