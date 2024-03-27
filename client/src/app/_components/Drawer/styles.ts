@@ -18,22 +18,22 @@ const DrawerContainer = styled.div<DrawerProps>`
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
-const MenuItems = styled.ul<DrawerProps>`
+const MenuItems = styled.div<DrawerProps>`
   list-style: none;
   padding: 30px 0;
   margin: ${(props) => (props.isopen ? "35px 0" : "0")};
 `;
 
-const MenuItem = styled.li<{ isActive: boolean, issubpage?: boolean }>`
+const MenuItem = styled.div<{ isactive: boolean, issubpage?: boolean }>`
   padding: 10px;
-  margin-top: 10px;
+  margin-top: ${(props) => (props.issubpage === true ? "0" : "10px")};
   text-wrap: nowrap;
   color: #333;
-  font-size: 1.2rem;
+  font-size: ${(props) => (props.issubpage === true? "1.1rem" : "1.2rem")};
   cursor: pointer;
   transition: 0.3s ease;
   ${(props) =>
-    props.isActive &&
+    props.isactive &&
     css`
       font-weight: 500;
       color: #2d9596;
@@ -52,17 +52,24 @@ const CollapseButton = styled.button<DrawerProps>`
   border-radius: 50%;
 `;
 
-const MenuItemWrapper = styled.span`
+interface MenuItemWrapperProps {
+  hasSubpages: boolean;
+}
+
+const MenuItemWrapper = styled.span<MenuItemWrapperProps>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  color: ${(props) => (props.hasSubpages ? "#888c" : "inherit")};
+  cursor: ${(props) => (props.hasSubpages ? "auto" : "pointer")};
   span {
     margin-left: 10px;
   }
 `;
 
 const SubpageWrapper = styled.div`
-  padding-left: 2rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
 
 `
 

@@ -8,6 +8,7 @@ import Alert from "@/app/_components/Alert"
 import { PageHeaderWrapper, Title } from "@/shared";
 import TrainingList from "../../_components/Alert/TrainingList";
 import ButtonPrimary from "../../_components/ButtonPrimary";
+import Breadcrumbs from "@/app/_components/Breadcrumbs";
 
 export default function Workouts() {
   const { loading: loadingTraining, error: errorTraining, data: trainingData } = useQuery(GET_TRAINING_PLANS);
@@ -16,8 +17,9 @@ export default function Workouts() {
   if (errorTraining) return <Alert message={errorTraining.message} />;
   return (
     <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Breadcrumbs />
       <PageHeaderWrapper>
-      <Title>Workouts availible:</Title>
+      <Title>Workouts available:</Title>
       <ButtonPrimary text="Create new workout" onClick={() => {}} />
       </PageHeaderWrapper>
       <TrainingList trainings={trainingData.trainings} />

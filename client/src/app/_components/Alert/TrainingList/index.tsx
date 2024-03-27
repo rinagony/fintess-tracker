@@ -26,8 +26,8 @@ const TrainingList = ({ trainings }: { trainings: TrainingProps[] }) => {
   return (
     <ListContainer>
     <Grid container spacing={2}>
-      {trainings.map((training: TrainingProps) => (
-        <Grid item xs={12} md={4}>
+      {trainings.map((training: TrainingProps, index: number) => (
+        <Grid key={index} item xs={12} md={4}>
           <Card key={training.id} style={{ marginBottom: "20px" }}>
             <CardContent>
               <Typography variant="h5" component="h2">
@@ -43,8 +43,8 @@ const TrainingList = ({ trainings }: { trainings: TrainingProps[] }) => {
               </TrainingInfoCard>
               <TrainingLevel level={training.level} />
               <Link
-                href="/training-plans/[trainingId]"
-                as={`/training-plans/${training.id}`}
+                href="/training-plans/available/[trainingId]"
+                as={`/training-plans/available/${training.id}`}
               >
                 View
               </Link>

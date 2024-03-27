@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import TableComponent from "./Table";
 import { GET_CLIENTS } from "@/queries/clientQueries";
 import { ADD_CLIENT, DELETE_CLIENT } from "@/mutations/clientMutations";
@@ -10,8 +10,13 @@ import ModalClient from "./Modal";
 import Person3Icon from "@mui/icons-material/Person3";
 import Spinner from "@/app/_components/Spinner"
 
-function Clients() {
-  const { loading, error, data } = useQuery(GET_CLIENTS);
+interface ClientsProps { 
+  loading: boolean; 
+  error: any; 
+  data: { clients: ClientProps[] }; 
+}
+
+function Clients({loading, error, data}: ClientsProps) {
   const columns = ["ID", "Name", "Email", "Phone", "Remove"];
 
   const [deleteClient] = useMutation(DELETE_CLIENT);

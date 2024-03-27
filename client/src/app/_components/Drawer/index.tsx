@@ -19,11 +19,11 @@ const pages: PageProps[] = [
     icon: <HomeOutlinedIcon />,
   },
   {
-    title: "Training plans",
+    title: "Workouts",
     icon: <SportsKabaddiIcon />,
     subpages: [
       {
-        title: "Available",
+        title: "Available Plans",
         link: "/training-plans/available",
       },
       {
@@ -65,12 +65,12 @@ const DrawerComponent: React.FC = () => {
       </CollapseButton>
       <MenuItems isopen={isOpen}>
         {pages.map((page, index) => (
-          <MenuItem key={index} isActive={usePathname() === page.link}>
+          <MenuItem issubpage={false} key={index} isactive={Boolean(usePathname() === page.link)}>
             <MenuItemContent page={page} isOpen={isOpen} />
             {page.subpages && isOpen && (
               <SubpageWrapper>
                 {page.subpages.map((subpage, subindex) => (
-                  <MenuItem issubpage key={subindex} isActive={usePathname() === subpage.link}>
+                  <MenuItem issubpage={true} key={subindex} isactive={Boolean(usePathname() === subpage.link)}>
                     <MenuItemContent subpage={subpage} isOpen={isOpen} />
                   </MenuItem>
                 ))}

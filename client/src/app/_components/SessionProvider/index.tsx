@@ -1,7 +1,5 @@
-'use client'
 import { SessionProvider } from "next-auth/react"
 import React from "react";
-import Spinner from "../Spinner";
 
 interface ProviderProps {
   session?: any;

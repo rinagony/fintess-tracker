@@ -15,7 +15,7 @@ const MenuItemContent = ({ page, isOpen, subpage }: MenuItemProps) => {
   return (
     <Link href={link}>
       {isOpen ? (
-        <MenuItemWrapper>
+        <MenuItemWrapper hasSubpages={Boolean(page?.subpages)}>
           {page && page.icon}
           <span>{subpage ? subpage.title : (page && page.title)}</span>
         </MenuItemWrapper>
