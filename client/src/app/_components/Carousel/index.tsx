@@ -1,5 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { SliderContainer, SliderContent, SlideItem, ImageBackground, Text, Description, Button, ButtonWrapper } from "./styles";
+import {
+  SliderContainer,
+  SliderContent,
+  SlideItem,
+  ImageBackground,
+  Text,
+  Description,
+  Button,
+  ButtonWrapper,
+} from "./styles";
 import RedoOutlinedIcon from "@mui/icons-material/RedoOutlined";
 import UndoOutlinedIcon from "@mui/icons-material/UndoOutlined";
 
@@ -27,7 +36,11 @@ const Slider: React.FC<SliderProps> = ({ slides }) => {
 
   const nextSlide = () => {
     if (sliderRef.current) {
-      const nextIndex = (sliderRef.current.scrollLeft + sliderRef.current.offsetWidth >= sliderRef.current.scrollWidth) ? 0 : sliderRef.current.scrollLeft + sliderRef.current.offsetWidth;
+      const nextIndex =
+        sliderRef.current.scrollLeft + sliderRef.current.offsetWidth >=
+        sliderRef.current.scrollWidth
+          ? 0
+          : sliderRef.current.scrollLeft + sliderRef.current.offsetWidth;
       sliderRef.current.scrollTo({
         left: nextIndex,
         behavior: "smooth",
@@ -37,7 +50,10 @@ const Slider: React.FC<SliderProps> = ({ slides }) => {
 
   const prevSlide = () => {
     if (sliderRef.current) {
-      const prevIndex = (sliderRef.current.scrollLeft === 0) ? sliderRef.current.scrollWidth - sliderRef.current.offsetWidth : sliderRef.current.scrollLeft - sliderRef.current.offsetWidth;
+      const prevIndex =
+        sliderRef.current.scrollLeft === 0
+          ? sliderRef.current.scrollWidth - sliderRef.current.offsetWidth
+          : sliderRef.current.scrollLeft - sliderRef.current.offsetWidth;
       sliderRef.current.scrollTo({
         left: prevIndex,
         behavior: "smooth",

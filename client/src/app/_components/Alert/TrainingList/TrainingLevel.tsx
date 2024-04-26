@@ -1,5 +1,5 @@
 import React from "react";
-import { TrainingInfoCard } from "../../../training-plans/styles";
+import { TrainingInfoCard } from "../../../my-workouts/styles";
 
 interface TrainingLevelProps {
   level: string;

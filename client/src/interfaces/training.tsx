@@ -1,5 +1,5 @@
 interface ExerciseTrainingProps {
-  id: string;
+  id?: string;
   sets: number;
   repetitions: number;
   exerciseUuid: string;

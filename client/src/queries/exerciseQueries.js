@@ -10,6 +10,7 @@ const GET_EXERCISES = gql`
       description
       equipment
       difficulty_level
+      image
     }
   }
 `;
@@ -24,6 +25,7 @@ const GET_EXERCISE = gql`
       description
       equipment
       difficulty_level
+      mage
     }
   }
 `;

@@ -11,8 +11,9 @@ import ButtonPrimary from "@/app/_components/ButtonPrimary";
 import { GET_EXERCISES } from "@/queries/exerciseQueries";
 import { useEffect, useState } from "react";
 import ExercisesList from "@/app/_components/ExercisesList";
-import TrainingLevel from "../../../_components/Alert/TrainingList/TrainingLevel";
-import { TrainingInfoCard } from "../../styles";
+import TrainingLevel from "../../_components/Alert/TrainingList/TrainingLevel";
+import { TrainingInfoCard } from "../../my-workouts/styles";
+import Breadcrumbs from "@/app/_components/Breadcrumbs";
 
 const TrainingItemWrapper = styled.div`
   p {
@@ -47,6 +48,7 @@ const TrainingItem = ({ params }: { params: { trainingId: string } }) => {
   if (error) return <Alert message={error.message} />;
   return (
     <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Breadcrumbs pageName={data.training.name} />
       <PageHeaderWrapper>
         <Title>{data.training.name}</Title>
         <ButtonPrimary text="Add workout" onClick={() => {}} />

@@ -24,7 +24,11 @@ const ExerciseSchema = new mongoose.Schema({
   difficulty_level: {
     type: String,
     required: true
-  }
+  },
+  image: {
+    type: String,
+    required: true
+  },
 });
 
 module.exports = mongoose.model('Exercise', ExerciseSchema);

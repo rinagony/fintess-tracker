@@ -1,6 +1,6 @@
 'use client'
 
-import { PageWrapper } from "../shared/styles";
+import { PageWrapper } from "@/shared";
 
 
 export default function MyGoals() {

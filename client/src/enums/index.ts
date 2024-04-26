@@ -4,4 +4,10 @@ enum ProjectStatusEnum {
   COMPLETED = 'Completed'
 }
 
-export { ProjectStatusEnum}
+enum WorkoutLevelEnum {
+  BEGINNER = 'Beginner',
+  INTERMEDIATE = 'Intermediate',
+  ADVANCED = 'Advanced'
+}
+
+export { ProjectStatusEnum, WorkoutLevelEnum}

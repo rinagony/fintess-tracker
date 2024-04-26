@@ -6,6 +6,7 @@ interface Exercise {
   description: string;
   equipment: string[];
   difficulty_level: string;
+  image: string;
 }
 
 export type { Exercise };

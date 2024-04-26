@@ -50,6 +50,7 @@ const ExerciseType = new GraphQLObjectType({
     description: { type: GraphQLString },
     equipment: { type: GraphQLList(GraphQLString) },
     difficulty_level: { type: GraphQLString },
+    image: { type: GraphQLString },
   }),
 });
 

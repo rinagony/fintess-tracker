@@ -1,21 +1,28 @@
 import styled, { css } from "styled-components";
+import colors from "@/shared/colors";
 
 interface DrawerProps {
   isopen: boolean;
 }
 
 const DrawerContainer = styled.div<DrawerProps>`
-  width: ${(props) => (props.isopen ? "220px" : "80px")};
-  height: 100vh;
-  position: relative;
-  padding: 0 10px;
-  background: #eaf6f6;
-  transition: width 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  @media (max-width: 1000px) {
+    display: none;
+  }
+
+  @media (min-width: 1001px) {
+    display: flex;
+    width: ${(props) => (props.isopen ? "220px" : "80px")};
+    height: 100vh;
+    position: relative;
+    padding: 0 10px;
+    background: #eaf6f6;
+    transition: width 0.3s ease;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
 `;
 
 const MenuItems = styled.div<DrawerProps>`
@@ -24,24 +31,24 @@ const MenuItems = styled.div<DrawerProps>`
   margin: ${(props) => (props.isopen ? "35px 0" : "0")};
 `;
 
-const MenuItem = styled.div<{ isactive: boolean, issubpage?: boolean }>`
+const MenuItem = styled.div<{ isactive: boolean; issubpage?: boolean }>`
   padding: 10px;
   margin-top: ${(props) => (props.issubpage === true ? "0" : "10px")};
   text-wrap: nowrap;
   color: #333;
-  font-size: ${(props) => (props.issubpage === true? "1.1rem" : "1.2rem")};
+  font-size: ${(props) => (props.issubpage === true ? "1.1rem" : "1.2rem")};
   cursor: pointer;
   transition: 0.3s ease;
   ${(props) =>
     props.isactive &&
     css`
       font-weight: 500;
-      color: #2d9596;
+      color: ${colors.primary};
     `}
 `;
 
 const CollapseButton = styled.button<DrawerProps>`
-  background: #F2F597;
+  background: #f2f597;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   top: 10px;
   cursor: pointer;
@@ -70,7 +77,13 @@ const MenuItemWrapper = styled.span<MenuItemWrapperProps>`
 const SubpageWrapper = styled.div`
   padding-left: 1rem;
   padding-top: 0.5rem;
+`;
 
-`
-
-export { DrawerContainer, MenuItems, MenuItem, CollapseButton, MenuItemWrapper, SubpageWrapper}
+export {
+  DrawerContainer,
+  MenuItems,
+  MenuItem,
+  CollapseButton,
+  MenuItemWrapper,
+  SubpageWrapper,
+};

@@ -1,14 +1,44 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
 import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
-import Container from "@mui/material/Container";
 import Authentication from "../Authentication";
 import { appBarStyled, LogoWrapper, Title } from "./styles";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import Phrases from "../Phrases";
 import SummaryProfile from "../SummaryProfile";
 import { useSession } from "next-auth/react";
+import styled from "styled-components";
+import MobileMenu from "../MobileMenu";
+import Logo from "../Logo";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  width: 100%;
+`;
+
+const HeaderAdditionalInfo = styled.div`
+  @media (max-width: 1000px) {
+    display: none;
+  }
+
+  @media (min-width: 1001px) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+`;
+
+const HeaderMobileMenu = styled.div`
+  @media (max-width: 1000px) {
+    display: block;
+  }
+
+  @media (min-width: 1001px) {
+    display: none;
+  }
+`;
 
 function Header() {
   const { data: session, status }: any = useSession();
@@ -16,26 +46,20 @@ function Header() {
   if (status === "loading") return null;
   return (
     <AppBar position="static" sx={appBarStyled}>
-      <Container maxWidth="xl">
-        <Grid container alignItems="center" spacing={2}>
-          <Grid item xs={12} md={2}>
-            <Link href="/">
-              <LogoWrapper>
-                <FitnessCenterIcon style={{ transform: "scale(1.8)" }} />
-                <Title>Fitness Tracker</Title>
-              </LogoWrapper>
-            </Link>
-          </Grid>
-          <Grid item xs={12} md={7}>
-            <Phrases />
-          </Grid>
-          <Grid item xs={12} md={2}>
+      <Container>
+        <Link href="/">
+          <LogoWrapper>
+<Logo />
+            <Title>HabitsPro</Title>
+          </LogoWrapper>
+        </Link>
+        <HeaderAdditionalInfo>
           {session?.user ? <SummaryProfile user={session.user} /> : null}
-          </Grid>
-          <Grid item xs={12} md={1}>
-            <Authentication />
-          </Grid>
-        </Grid>
+          <Authentication />
+        </HeaderAdditionalInfo>
+        <HeaderMobileMenu>
+          <MobileMenu />
+        </HeaderMobileMenu>
       </Container>
     </AppBar>
   );

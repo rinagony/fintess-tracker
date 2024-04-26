@@ -6,7 +6,6 @@ const SliderContainer = styled.div`
   overflow-x: hidden;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   min-height: 20rem;
-  border-radius: 10px;
 `;
 
 const SliderContent = styled.div`
